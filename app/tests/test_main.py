@@ -13,7 +13,7 @@ class ApiTest(unittest.TestCase):
     def setUp(self) -> None:
         engine = create_engine(
             "sqlite://",
-            connect_args={"check_same_thread": False},
+            connect_args={"check_same_thread": False},  # sqlite-specific
             poolclass=StaticPool,
         )
         SQLModel.metadata.create_all(engine)
