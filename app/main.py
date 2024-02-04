@@ -11,6 +11,8 @@ app = FastAPI(docs_url=None, redoc_url=None)
 
 connect_args = {"check_same_thread": False}
 database_url = os.getenv("DATABASE_URL", "sqlite:///database.db")
+# DATABASE_URL uses postgres:// but SQLAlchemy only accepts postgresql://
+database_url = database_url.replace("postgres://", "postgresql://")
 engine = create_engine(database_url, connect_args=connect_args)
 
 
