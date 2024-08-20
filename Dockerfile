@@ -4,7 +4,8 @@ WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
 COPY ./run.sh /code/run.sh
-COPY ./root-certs.crt /workspace/.adaptable/root-certs.crt
+# COPY ./root-certs.crt /.adaptable/root-certs.crt
+COPY .adaptable /.adaptable
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
